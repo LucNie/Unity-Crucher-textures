@@ -3,11 +3,6 @@ using UnityEngine;
 using System.Collections;
 using System.Linq;
  
-/* INFO
-* I can't find the source
-* or the person who wrote this part of the script
-*/
-
 public class TextureCompressor : EditorWindow
 {
     #region Variables
