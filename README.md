@@ -1,2 +1,2 @@
 # Unity-Crucher-textures
-[Unity] Script that cruch all textures
+[Unity] Script that cruch-compress all textures
