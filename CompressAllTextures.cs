@@ -59,7 +59,7 @@ public class TextureCompressor : EditorWindow
         EditorGUILayout.LabelField ("Compresse all textures", EditorStyles.boldLabel);
  
         compressionQuality = EditorGUILayout.IntSlider ("Compression quality:", compressionQuality, 0, 100);
-        processingSpeed = EditorGUILayout.IntSlider ("Processing speed:", processingSpeed, 1, 20);
+        processingSpeed = EditorGUILayout.IntSlider ("Processing speed:", processingSpeed, 10, 20);
  
         string buttonLabel = jobRoutine != null ? "Cancel" : "Start";
         if (GUILayout.Button (buttonLabel))
