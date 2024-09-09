@@ -8,6 +8,7 @@ public class TextureCompressor : EditorWindow
     #region Variables
 
     // Variables pour contrôler la qualité de compression et la vitesse de traitement
+    bool cruchedCompression = true;     // Activer la compression des textures
     int compressionQuality = 75;    // Qualité de compression par défaut à 75%, bon compromis
     int processingSpeed = 10;       // Vitesse de traitement des textures (nombre de textures traitées par frame)
     
@@ -70,12 +71,15 @@ public class TextureCompressor : EditorWindow
         // Titre de la fenêtre
         EditorGUILayout.LabelField("Compress all textures", EditorStyles.boldLabel);
 
-        // Slider pour ajuster la qualité de la compression
-        compressionQuality = EditorGUILayout.IntSlider("Compression quality:", compressionQuality, 0, 100);
-
         // Slider pour ajuster la vitesse de traitement
         processingSpeed = EditorGUILayout.IntSlider("Processing speed:", processingSpeed, 10, 20);
-
+        // Slider pour ajuster la qualité de la compression
+        // toggle
+        cruchedCompression = EditorGUILayout.Toggle("Crunch compression:", cruchedCompression);
+        if (cruchedCompression)
+        {
+            compressionQuality = EditorGUILayout.IntSlider("Compression quality:", compressionQuality, 0, 100);
+        }
         // Option pour définir la taille maximale de la texture
         maxTextureSize = EditorGUILayout.Toggle("Set max texture size:", maxTextureSize);
         if (maxTextureSize)
@@ -198,8 +202,11 @@ public class TextureCompressor : EditorWindow
             progressCount += 1f;
 
             // Appliquer la compression
-            textureImporter.compressionQuality = quality;
-            textureImporter.crunchedCompression = true;
+            if (cruchedCompression)
+            {
+                textureImporter.compressionQuality = quality;
+                textureImporter.crunchedCompression = true;
+            }
             if (setTextureToLowRes)
             {
                 textureImporter.textureCompression = TextureImporterCompression.CompressedLQ;
