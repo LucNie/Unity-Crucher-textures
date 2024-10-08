@@ -36,6 +36,6 @@ Le **Texture Compressor** est un outil Unity qui permet de compresser toutes les
    - Une barre de progression indique le pourcentage de textures traitées.
 
 ## Notes
-
+- Ce script peut empêcher l'upload d'avatars et/ou de mondes pour les projets VRChat ⚠
 - Assurez-vous d'avoir sauvegardé votre projet avant d'exécuter le script, car les modifications appliquées aux textures peuvent être irréversibles.
 - Ce script est principalement destiné à optimiser les textures pour une utilisation dans les jeux Unity.
